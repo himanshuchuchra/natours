@@ -1,6 +1,7 @@
 // Import Section
 import express from "express";
 import "dotenv";
+import "./config/mongoose.config.js";
 import morgan from "morgan";
 
 // Configuration Section

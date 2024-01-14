@@ -5,12 +5,20 @@ export const getAllTours = async (req, res) => {
       Algorithm:
 
       1. Find all tours from database
-      2. Send the response
+      2. Check if atleast one tour exists
+      3. Send the response
         
     */
 
   try {
     const tours = await Tour.find();
+
+    if (tours.length === 0) {
+      return res.status(200).json({
+        success: true,
+        message: "No tours exists",
+      });
+    }
 
     return res.status(200).json({
       success: true,

@@ -2,7 +2,7 @@
 import express from "express";
 
 // Configuration Section
-const app = express();
+const router = express.Router();
 
 // Export Section
-export { app };
+export default router;

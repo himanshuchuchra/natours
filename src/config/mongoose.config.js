@@ -5,16 +5,17 @@ import mongoose from "mongoose";
 
 // Connecting to Database - MongoDB
 const connectMongoDB = async () => {
-  await mongoose
-    .connect(process.env.MONGODB_URI)
-    .then((data) => {
-      console.log(
-        `SUCCESS 🚀 - MongoDB is connected at ${data.connection._connectionString}`
-      );
-    })
-    .catch((err) => {
-      console.log(`ERROR 💥 | MongoDB Connection | ${err}`);
-    });
+  try {
+    const database = await mongoose.connect(process.env.MONGODB_URI);
+    if (!database) {
+      console.log(`ERROR 💥 | MongoDB Connection | mongoose.config.js`);
+    }
+
+    const connectionString = database.connection._connectionString;
+    console.log(`SUCCESS 🚀 - MongoDB connected on ${connectionString}`);
+  } catch (error) {
+    console.log(`ERROR 💥 | MongoDB Connection | ${error}`);
+  }
 };
 connectMongoDB();
 

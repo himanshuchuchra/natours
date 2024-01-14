@@ -1,6 +1,30 @@
 import { Tour } from "../../../models/tour.model.js";
 
-export const getAllTours = (req, res) => {};
+export const getAllTours = async (req, res) => {
+  /*
+        Algorithm:
+
+        1. Find all tours from database
+        2. Send the response
+        
+    */
+
+  try {
+    const tours = await Tour.find();
+
+    return res.status(200).json({
+      success: true,
+      results: tours.length,
+      data: tours,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error,
+    });
+  }
+};
+
 export const getTour = (req, res) => {};
 
 export const createTour = async (req, res) => {
@@ -12,7 +36,7 @@ export const createTour = async (req, res) => {
         3. Validate the unique fileds
         4. Create the Tour
         5. Send the response
-    
+        
     */
 
   try {

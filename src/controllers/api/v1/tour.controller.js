@@ -90,9 +90,25 @@ export const createTour = async (req, res) => {
     */
 
   try {
-    const { name, price, rating } = req.body;
+    const {
+      name,
+      price,
+      duration,
+      maxGroupSize,
+      difficulty,
+      summary,
+      coverImage,
+    } = req.body;
 
-    if (!name || !price) {
+    if (
+      !name ||
+      !price ||
+      !duration ||
+      !maxGroupSize ||
+      !difficulty ||
+      !summary ||
+      !coverImage
+    ) {
       return res.status(400).json({
         success: false,
         message: "Please provide all required fields",
@@ -107,7 +123,7 @@ export const createTour = async (req, res) => {
       });
     }
 
-    const tour = await Tour.create({ name, price, rating });
+    const tour = await Tour.create(req.body);
 
     return res.status(201).json({
       success: true,

@@ -9,11 +9,11 @@ const connectMongoDB = async () => {
     .connect(process.env.MONGODB_URI)
     .then((data) => {
       console.log(
-        `SUCCESS - MongoDB is connected at ${data.connection._connectionString}`
+        `SUCCESS 🚀 - MongoDB is connected at ${data.connection._connectionString}`
       );
     })
     .catch((err) => {
-      console.log(`ERROR | MongoDB Connection | ${err}`);
+      console.log(`ERROR 💥 | MongoDB Connection | ${err}`);
     });
 };
 connectMongoDB();

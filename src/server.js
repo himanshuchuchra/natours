@@ -8,9 +8,9 @@ app.use("/", router);
 // Listening Server
 app.listen(process.env.PORT, (err) => {
   if (err) {
-    console.log(`ERROR - Running on PORT: ${process.env.PORT}`);
+    console.log(`ERROR 💥 - Running on PORT: ${process.env.PORT}`);
   }
   console.log(
-    `SUCCESS - Server is running on http://localhost:${process.env.PORT}`
+    `SUCCESS 🚀 - Server is running on http://localhost:${process.env.PORT}`
   );
 });

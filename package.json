@@ -2,13 +2,15 @@
   "name": "natours",
   "version": "1.0.0",
   "description": "🚀 Dive into the world of web development with the Natours project by Jonas Schmedtmann! 🌐 Crafted during an engaging Node.js course on Udemy, 🎓 Unlocking the secrets of scalable and dynamic web applications with this hands-on learning experience! 🛠️",
-  "main": "server.js",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon -r dotenv/config --experimental-json-modules src/server.js"
   },
   "author": "Himanshu Chuchra",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "express": "^4.18.2"
   }
 }
